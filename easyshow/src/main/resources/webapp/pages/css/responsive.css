@@ -1,0 +1,704 @@
+/* Table of Contents
+==================================================
+01. RETINA STYLES
+02. BASE STYLES (1140px)
+03. #DESKTOP (960px)
+04. #Tablet (Portrait)
+05. #Mobile (Portrait)
+*/
+
+
+/*
+=============================================== 01. RETINA STYLES ===============================================
+*/
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+	#sidebar .search-form .search-field, footer .search-form .search-field, .search-form input.search-field {background-image: url(images/search-magnify@2x.png); background-size:30px 30px;}
+	.lt-ie9 #sidebar .search-form .search-field, .lt-ie9 footer .search-form .search-field, .search-form input.search-field {background-image: url(images/search-magnify.png); }
+}
+
+/*
+=============================================== 02. BASE STYLES (1140px) ===============================================
+*/
+/* Note: Design for a width of 1040px */
+html {-webkit-text-size-adjust: none;}	/* Removes webkit font resizing */ 
+body {max-width:100%; width:100%;}
+img {max-width:100%; height: auto; }
+
+
+/*
+=============================================== 03. #DESKTOP (960px) ===============================================
+*/
+/* Note: Design for a width of 960px */
+@media only screen and (min-width: 959px) and (max-width: 1190px) {
+
+.width-container-progression {
+  width: 90%;
+  margin: 0 5% 0 5%;
+}    
+    
+    
+h1 {font-size:36px;  }
+h2.blog-title-pro { font-size:30px; }
+h2 {font-size:29px; }
+h3 {font-size:23px; }
+h4  {font-size:21px;}
+h5  {font-size:17px; }
+h6 {font-size:15px;  }
+
+    #soundbyte-page-title p {
+        font-size: 20px;
+    }
+
+ul.meta-progression-bottom {
+	font-size:80%;
+}
+
+    
+    #soundbyte-page-title .subtitle-progression {
+        font-size: 16px;
+    }
+
+    header {
+        position: relative;
+    }
+    
+    
+    .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+        margin: 10px 0 5px 0;
+        line-height: 23px;
+    }   
+
+    .isotope-index-text .soundbyte-podcast-progression-meta {
+        margin-top: 10px;
+    }  
+    .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+        margin: 10px 0 5px 0;
+        line-height: 23px;
+    }    
+    .soundbyte-podcast-date-progression {
+        font-weight: 600;
+        font-size: 13px;
+    }
+    .isotope-index-text a.soundbyte-podcast-play-progression {
+        padding: 18px 0px;
+    }
+    
+    .about-content-progression h2.about-title-progression {
+        font-size: 30px;
+    }
+    
+    .highlight-section-progression .highlight-title-progression {
+        font-size: 24px;
+    }
+    .highlight-section-progression p {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+    
+    footer#site-footer .latest-news-progression li, footer#site-footer li, footer#site-footer .latest-news-progression li a, footer#site-footer .follow-us-progression ul li a {
+        font-size: 14px;
+        line-height: 1.4;
+        padding: 2px 0;
+        
+    }
+    
+    body #progression-home-slider .slider-progression-soundbyte-podcast-title div {
+        font-size: 19px;
+    }
+    
+    body #progression-home-slider .slider-progression-soundbyte-podcast-title div i {
+        font-size: 15px;
+    }
+    
+    body footer#site-footer .latest-news-progression li a {
+        padding: 0;
+        font-weight: 600;
+    }
+    
+    footer#site-footer .follow-us-progression .follow-desc-progression {
+        font: 600 11px / 12px Roboto;
+        margin: 5px 0;
+    }
+    
+    footer#site-footer .follow-us-progression ul li a i {
+        font-size: 16px;
+    }
+    
+    #previous-episodes-soundbyte .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+    }
+    
+    .isotope-index-text .soundbyte-podcast-progression-meta div, .isotope-index-text a.soundbyte-podcast-play-progression {
+        font-size: 13px;
+    }
+    
+    .isotope-index-text .soundbyte-podcast-progression-meta div i {
+        font-size: 15px;
+        margin-right: 6px;
+    }
+    
+    #filters button.btn {
+        margin-left: 25px;
+    }
+    
+    
+   .featured-blog-progression, .post-container-progression .soundbyte-divider-progression {
+        margin-bottom: 20px;
+    }
+    
+    h2.blog-title-progression {
+        font-size: 24px;
+    }
+    
+    .category-meta-progression a, .soundbyte-date-progression, .soundbyte-date-progression a, .author-meta-progression, .meta-comments-progression, .author-meta-progression, .meta-comments-progression  {
+        font-size: 13px;
+    }  
+    
+    .soundbyte-time-pro {
+        top: 0;
+    }
+    
+    
+
+    /* SLIDER STYLES */
+    #progression-home-slider .slider-progression-title, #progression-home-slider .soundbyte-headline, .soundbyte-headline, #progression-home-slider .soundbyte-headline .subtitle-progression, .soundbyte-headline .subtitle-progression, .subtitle-progression, #progression-home-slider .progression-button-icons i, .progression-button-icons i, #progression-home-slider .slider-progression-soundbyte-podcast-title div, #progression-home-slider p, #progression-home-slider .slider-progression-soundbyte-podcast-title div i  {
+        font-size: 24px;      
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    body #progression-home-slider .slider-progression-title {
+        text-align: left;
+    }
+    
+    #progression-home-slider .slider-progression-title {
+        margin: 0 0 5px 0;        
+    }
+    
+    #progression-home-slider .soundbyte-divider-progression, .soundbyte-divider-progression {
+        margin-bottom: 20px;        
+    }
+    #progression-home-slider a.slider-play-progression {
+        padding: 10px 0;
+    }
+    
+    #progression-home-slider .progression-slider-desc {
+        display: none;
+    }
+    
+    #progression-home-slider .alignright {
+        margin-left: 10px;
+    }
+    
+    #progression-home-slider .alignleft {
+        margin-right: 10px;
+    }
+    
+    #progression-home-slider .soundbyte-divider-progression, .soundbyte-divider-progression {
+        height: 5px;
+    }
+    
+    #slide-1-layer-2 {
+        display: none;
+    }
+
+     .isotope-item {
+        width: 46%;
+    }
+    
+    .isotope.full-width-progression .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+        margin-top: 5px;
+    }  
+    
+      .isotope.full-width-progression .isotope-index-text .soundbyte-podcast-progression-meta div,  .isotope.full-width-progression .isotope-index-text a.soundbyte-podcast-play-progression, .isotope.full-width-progression .soundbyte-podcast-date-progression {
+        font-size: 10px;
+        padding: 3px;
+    }        
+
+
+}
+
+
+/*
+=============================================== 04. #Tablet (Portrait) ===============================================
+*/
+/* Note: Design for a width of 768px */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+    
+.width-container-progression {
+  width: 92%;
+  margin: 0 4% 0 4%;
+}
+
+nav#site-navigation {display:none;}
+.mobile-menu-icon-progression { display:block; }   
+
+.commentlist {width:68%;}
+#post-nav-progression a { font-size:14px; }
+
+body {
+	font-size:14px;
+	line-height: 1.5;
+}
+h1, #soundbyte-page-title h1#page-title {font-size:38px;}
+h2.blog-title-pro { font-size:28px; }
+h2 {font-size:26px; }
+h3 {font-size:21px; }
+h4  {font-size:20px;}
+h5  {font-size:16px; }
+h6 {font-size:14px;  }
+
+input#submit-pro, body #main button.single_add_to_cart_button, body #main input.button, body.woocommerce-cart #main td.actions  input.button.checkout-button, 
+body #main button.button, body #main a.button, body #single-product-pro button.single_add_to_cart_button,
+body a.more-link, body #main #respond input#submit, body a.progression-button, body input.wpcf7-submit, body footer .wpcf7 input#submit, body input#submit, body a.ls-sc-button.default {
+	padding:14px 20px;
+	font-size:11px;
+}
+    
+    #soundbyte-page-title p {
+        font-size: 20px;
+    }
+
+ul.meta-progression-bottom {
+	font-size:80%;
+}
+
+    
+    #soundbyte-page-title .subtitle-progression {
+        font-size: 16px;
+    }
+
+    header {
+        position: relative;
+    }
+    
+    
+    .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+        margin: 10px 0 5px 0;
+        line-height: 23px;
+    }   
+    
+    .isotope.full-width-progression .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 15px;
+        margin-top: 5px;
+    }  
+    
+      .isotope.full-width-progression .isotope-index-text .soundbyte-podcast-progression-meta div,  .isotope.full-width-progression .isotope-index-text a.soundbyte-podcast-play-progression, .isotope.full-width-progression .soundbyte-podcast-date-progression {
+        font-size: 10px;
+        padding: 0;
+    }    
+
+    .isotope-index-text .soundbyte-podcast-progression-meta {
+        margin-top: 10px;
+    }  
+    .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+        margin: 10px 0 5px 0;
+        line-height: 23px;
+    }    
+    .soundbyte-podcast-date-progression {
+        font-weight: 600;
+        font-size: 13px;
+    }
+    .isotope-index-text a.soundbyte-podcast-play-progression {
+        padding: 18px 0px;
+    }
+    
+    .about-content-progression h2.about-title-progression {
+        font-size: 30px;
+    }
+    
+    .highlight-section-progression .highlight-title-progression {
+        font-size: 24px;
+    }
+    .highlight-section-progression p {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+    
+    footer#site-footer .latest-news-progression li, footer#site-footer li, footer#site-footer .latest-news-progression li a, footer#site-footer .follow-us-progression ul li a {
+        font-size: 14px;
+        line-height: 1.4;
+        padding: 2px 0;
+        
+    }
+    
+    body footer#site-footer .latest-news-progression li a {
+        padding: 0;
+        font-weight: 600;
+    }
+    
+    footer#site-footer .follow-us-progression .follow-desc-progression {
+        font: 600 11px / 12px Roboto;
+        margin: 5px 0;
+    }
+    
+    footer#site-footer .follow-us-progression ul li a i {
+        font-size: 16px;
+    }
+    
+    #previous-episodes-soundbyte .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+    }
+    
+    .isotope-index-text .soundbyte-podcast-progression-meta div, .isotope-index-text a.soundbyte-podcast-play-progression {
+        font-size: 13px;
+    }
+    
+    .isotope-index-text .soundbyte-podcast-progression-meta div i {
+        font-size: 15px;
+        margin-right: 6px;
+    }
+    
+    #filters button.btn {
+        margin-left: 25px;
+    }
+    
+    
+   .featured-blog-progression, .post-container-progression .soundbyte-divider-progression {
+        margin-bottom: 20px;
+    }
+    
+    h2.blog-title-progression {
+        font-size: 24px;
+    }
+    
+    .category-meta-progression a, .soundbyte-date-progression, .soundbyte-date-progression a, .author-meta-progression, .meta-comments-progression, .author-meta-progression, .meta-comments-progression  {
+        font-size: 13px;
+    }  
+    
+    .soundbyte-time-pro {
+        top: 0;
+    }
+    
+    
+
+    /* SLIDER STYLES */
+    #progression-home-slider .slider-progression-title, #progression-home-slider .soundbyte-headline, .soundbyte-headline, #progression-home-slider .soundbyte-headline .subtitle-progression, .soundbyte-headline .subtitle-progression, .subtitle-progression, #progression-home-slider .progression-button-icons i, .progression-button-icons i, #progression-home-slider .slider-progression-soundbyte-podcast-title div, #progression-home-slider p, #progression-home-slider .slider-progression-soundbyte-podcast-title div i  {
+        font-size: 20px;      
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    body #progression-home-slider .slider-progression-title {
+        text-align: left;
+    }
+    
+    #progression-home-slider .slider-progression-title {
+        margin: 0 0 5px 0;        
+    }
+    
+    #progression-home-slider .soundbyte-divider-progression, .soundbyte-divider-progression {
+        margin-bottom: 20px;        
+    }
+    #progression-home-slider a.slider-play-progression {
+        padding: 10px 0;
+    }
+    
+    #progression-home-slider .progression-slider-desc {
+        display: none;
+    }
+    
+    #progression-home-slider .alignright {
+        margin-left: 10px;
+    }
+    
+    #progression-home-slider .alignleft {
+        margin-right: 10px;
+    }
+    
+    #progression-home-slider .soundbyte-divider-progression, .soundbyte-divider-progression {
+        height: 5px;
+    }
+    
+    #slide-1-layer-2 {
+        display: none;
+    }
+    
+    .isotope-item {
+        width: 46%;
+    }
+	
+	#progression-home-slider .progression-button-icons a.ls-sc-button, .progression-button-icons a.ls-sc-button {
+		padding: 9px 12px 7px 12px;
+	}
+    
+/* WooCommerce Columns */
+body #main li.product.column-4 {margin-right:2%; width: 23.5%; clear:none;}
+body #main li.product.column-3 {margin-right:2%; width: 32%; clear:none;}
+body #main li.product.column-2 {margin-right:2%; width: 49%; clear:none; }
+
+
+body #main li.product.column-2.last, body #main li.product.column-3.last, body #main li.product.column-4.last, .lt-ie8 body #main li.product.column-2.last, .lt-ie8 body #main li.product.column-3.last, .lt-ie8 body #main li.product.column-4.last {margin-right:0%;}
+
+body #main li.product { float:left;}
+body #main li.product.first { clear: both;}
+
+body #main .columns-2 li.product {margin-left:1%;margin-right:1%; width: 48%; }
+body #main .columns-3 li.product {margin-left:1%;margin-right:1%; width: 31.3%; }
+body #main .columns-4 li.product {margin-left:1%;margin-right:1%; width: 23%; }
+
+
+
+}
+
+
+/*
+=============================================== 05. #Mobile (Portrait) ===============================================
+*/
+/* Note: Design for a width of 320px */
+
+@media only screen and (max-width: 767px) {
+
+    nav#site-navigation {display:none;}
+    .mobile-menu-icon-progression { display:block; }    
+
+    .width-container-progression {
+      width: 92%;
+      margin: 0 4% 0 4%;
+    }
+
+    header#masthead-progression {
+        position: relative;        
+    }    
+
+    .isotope-item, .isotope.full-width-progression .isotope-item {
+        width: 100%;
+    }
+    
+    #soundbyte-page-title {
+        padding: 50px 0 25px 0;
+    } 
+    
+    #soundbyte-page-title p {
+        font-size: 14px;
+    }
+    
+    #soundbyte-page-title h1#page-title, #soundbyte-page-title .soundbyte-podcast-title-progression .soundbyte-podcast-progression-title {
+        font-size: 30px;
+    }
+    
+    #soundbyte-page-title .breadcrumbs-soundbyte {
+        margin-bottom: 25px;
+    }
+
+    body .responsive-wrapper, #pro-home-player .responsive-wrapper {
+        width: 99%;
+        margin: 0 auto;
+    }    
+
+    footer .footer-2-column .widget, footer .footer-3-column .widget, footer .footer-4-column .widget,
+    .grid2column-progression, .grid3column-progression, .grid3columnbig-progression, .grid4column-progression, .grid4columnbig-progression, footer#site-footer #copyright-progression .grid3column-progression  {
+        width:100%; margin-bottom:10px;
+    }
+    
+    footer#site-footer #copyright-progression .grid3column-progression {
+        margin-bottom: 35px;
+    }
+
+    #copyright-progression img {
+        position: relative;
+        top: 0px;    
+    }
+    
+    #related-portfolio-pro .related-columns-pro {margin:0px;}
+
+    #soundbyte-sidebar, #soundbyte-sidebar-container  { width:100%; position:relative; float:none; }
+
+    .commentlist {width:95%; left:-10px;}
+    .commentlist li .comment-text {margin-left:0px !important; border:none !important; padding-left:0px !important; }
+    .commentlist .children li.comment .comment-meta {margin-left:0px;}
+    .commentlist .avatar, .commentlist > li:before {display:none;}
+    .commentlist .avatar {display:none;}
+
+     .google-maps-expand .googlemap {max-height:300px !important;}
+
+     body {
+        font-size:15px;
+        line-height: 1.4;
+     }
+     h1 {font-size:30px;  }
+     h2.blog-title-pro { font-size:25px; }
+     h2 {font-size:22px; }
+     h3 {font-size:19px; }
+     h4  {font-size:17px;}
+     h5  {font-size:15px; }
+     h6 {font-size:13px;  }
+
+     input#submit-pro, body #main button.single_add_to_cart_button, body #main input.button, body.woocommerce-cart #main td.actions  input.button.checkout-button, 
+     body #main button.button, body #main a.button, body #single-product-pro button.single_add_to_cart_button,
+     body a.more-link, body #main #respond input#submit, body a.progression-button, body input.wpcf7-submit, body footer .wpcf7 input#submit, body input#submit, body a.ls-sc-button.default {
+        padding:10px 16px;
+        font-size:11px;
+     }
+     pre, code {font-size:12px;}
+    
+    /* SLIDER STYLES */
+    #progression-home-slider, #progression-home-slider a.slider-play-progression, #progression-home-slider .slider-progression-title, #progression-home-slider .soundbyte-headline, .soundbyte-headline, #progression-home-slider .soundbyte-headline .subtitle-progression, .soundbyte-headline .subtitle-progression, .subtitle-progression, #progression-home-slider .progression-button-icons i, .progression-button-icons i, #progression-home-slider .slider-progression-soundbyte-podcast-title div, #progression-home-slider p, #progression-home-slider .slider-progression-soundbyte-podcast-title div i  {
+        font-size: 12px;      
+        line-height: 1.2;
+    }
+    
+    #progression-home-slider .slider-progression-title {
+        margin: 0 0 5px 0;        
+    }
+    
+    #progression-home-slider .soundbyte-divider-progression, .soundbyte-divider-progression {
+        margin-bottom: 8px;  
+        height: 5px;
+    }
+    #progression-home-slider a.slider-play-progression {
+        padding: 10px 0;
+    }
+    
+    #progression-home-slider .progression-slider-desc {
+        display: none;
+    }
+    
+    #progression-home-slider .alignright {
+        margin-left: 10px;
+    }
+    
+    #progression-home-slider .alignleft {
+        margin-right: 10px;
+    }
+
+    
+    #slide-1-layer-2 {
+        display: none;
+    }
+
+    h2.filter-heading-progression {
+        float: none;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    #filters.button-group {
+        float: none;
+        margin: 12px 0;
+    }
+
+    #filters .btn {
+        float: none;
+        text-align: left;
+        display: block;
+        margin: 17px 0 5px 40px;
+    }
+    
+    body.episodes #filters {
+        display: block;
+        margin: 23px auto 25px auto;   
+    }
+
+    .isotope-index-text .soundbyte-podcast-progression-meta {
+        margin-top: 10px;
+    }  
+    .isotope-index-text .soundbyte-podcast-progression-title {
+        font-size: 17px;
+        margin: 10px 0 5px 0;
+        line-height: 23px;
+    }    
+    .soundbyte-podcast-date-progression {
+        font-weight: 600;
+        font-size: 13px;
+    }
+    .isotope-index-text a.soundbyte-podcast-play-progression {
+        padding: 8px 0px;
+    }
+    
+    .about-content-progression h2.about-title-progression {
+        font-size: 30px;
+    }
+    
+    .highlight-section-progression .highlight-title-progression {
+        font-size: 24px;
+    }
+    .highlight-section-progression p {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+    footer .widget {
+        padding: 45px 0px 5px 0px;
+    }  
+    footer#site-footer .follow-us-progression .grid3column-progression {
+        text-align: left;
+        top: 0px;
+    }
+    
+    #soundbyte-page-title .soundbyte-podcast-title-progression {
+        margin: 40px auto 20px auto;
+    }
+    
+    #soundbyte-page-title .soundbyte-podcast-title-progression .soundbyte-podcast-progression-meta {
+        margin: 15px 0;
+    }
+    
+    #soundbyte-download-podcast {
+        display: none;
+    }    
+    #previous-episodes-soundbyte .isotope-index-text .soundbyte-podcast-progression-title  {
+        font-size: 15px;
+    }
+    
+    .featured-blog-progression, .post-container-progression .soundbyte-divider-progression {
+        margin-bottom: 20px;
+    }
+    
+    h2.blog-title-progression {
+        font-size: 18px;
+    }
+    
+    .category-meta-progression a, .soundbyte-date-progression, .soundbyte-date-progression a, .author-meta-progression, .meta-comments-progression, .author-meta-progression, .meta-comments-progression  {
+        font-size: 13px;
+    }
+    
+    .wpcf7 input, .wpcf7 textarea, #respond textarea, #respond input {
+        width: 90%;
+        min-width: 90%;
+        padding: 3.5% 5%;
+    }
+    
+    body .ls-sc-toggle h3.ls-sc-toggle-trigger {
+        font-size: 14px;
+    }
+    
+    body .ls-sc-toggle .ls-sc-toggle-trigger {
+        padding: 10px;
+    }
+    
+    body .ls-sc-toggle .ls-sc-toggle-trigger:before {
+        margin-right: 0;
+        top: 2px;
+    }
+    
+    blockquote {
+        padding: 0 7px;
+    }
+    
+    #respond input#submit {
+        width: initial;
+        min-width: initial;
+    }
+    
+    body #filters .filter-wrapper .btn {
+        margin-left: 0;
+    }
+    
+    #progression-home-slider .progression-button-icons, #progression-home-slider .subtitle-progression, #progression-home-slider .soundbyte-headline {
+        display: none;
+    }
+    
+    #progression-home-slider .caption-progression {
+        height: 70%;
+    }
+    
+    
+}
