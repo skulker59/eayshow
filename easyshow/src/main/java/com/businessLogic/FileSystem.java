@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import com.database.Dao;
 import com.omertron.thetvdbapi.TheTVDBApi;
 import com.omertron.thetvdbapi.TvDbException;
+import com.omertron.thetvdbapi.model.Episode;
 import com.omertron.thetvdbapi.model.Series;
 
 
@@ -36,7 +37,7 @@ public class FileSystem {
 		Scan scan = new Scan();
 		
 		// Chemin vers le dossier contenant toutes les séries.
-		Path DDPath = Paths.get("E:/SeriesTest");
+		Path DDPath = Paths.get("D:/SeriesTest");
 		DirectoryStream<Path> stream = Files.newDirectoryStream(DDPath);
 		try {
 			Iterator<Path> iterator = stream.iterator();
@@ -116,8 +117,9 @@ public class FileSystem {
 	@POST
 	@javax.ws.rs.Path("/angu/{param}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public String testAngu(@PathParam("param") String param){
-		return "skulker";
+//	@Produces(MediaType.TEXT_PLAIN)
+	public void testAngu(@PathParam("param") String param) throws TvDbException{
+//		Series series = tvDB.getSeries("73739", "en");
+		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
 	}
 }
