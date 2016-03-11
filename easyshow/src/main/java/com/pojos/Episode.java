@@ -1,7 +1,5 @@
 package com.pojos;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 @Entity
 @Table(name = "EPISODE")
@@ -38,12 +39,64 @@ public class Episode {
 	@Column(name = "airedDate")
 	private String airedDate;
 
+	@Column(name = "status")
+	private String status;
+	
 	@ManyToOne
 	private Show show;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "episode", orphanRemoval = true)
 	private List<Video> listVideos;
 
+	public Show getShow() {
+		return show;
+	}
+
+	public void setShow(Show show) {
+		this.show = show;
+	}
+
+	public void addVideo(Video v) {
+		if (!listVideos.contains(v)) {
+			listVideos.add(v);
+		}
+	}
+
+	public List<Video> getListVideos() {
+		return listVideos;
+	}
+
+	public void setListVideos(List<Video> listVideos) {
+		this.listVideos = listVideos;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Episode ep = (Episode) obj;
+		return new EqualsBuilder().append(this.getName(), ep.getName())
+				.append(this.getEpAbsolute(), ep.getEpAbsolute())
+				.append(this.getEpSeason(), ep.getEpSeason())
+				.append(this.getEpNumber(), ep.getEpNumber())
+				.append(this.getDescription(), ep.getDescription())
+				.append(this.getAiredDate(), ep.getAiredDate()).isEquals();
+	}
+	
+	@Override
+	public int hashCode() {
+	return new HashCodeBuilder(17, 31).append(this.getName())
+			.append(this.getEpAbsolute())
+			.append(this.getEpSeason())
+			.append(this.getEpNumber())
+			.append(this.getDescription()).append(this.getAiredDate())
+			.toHashCode();
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -99,53 +152,12 @@ public class Episode {
 	public void setAiredDate(String airedDate) {
 		this.airedDate = airedDate;
 	}
-
-	public Show getShow() {
-		return show;
-	}
-
-	public void setShow(Show show) {
-		this.show = show;
-	}
-
-	public void addVideo(Video v) {
-		if (!listVideos.contains(v)) {
-			listVideos.add(v);
-		}
-	}
-
-	public List<Video> getListVideos() {
-		return listVideos;
-	}
-
-	public void setListVideos(List<Video> listVideos) {
-		this.listVideos = listVideos;
-	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Episode ep = (Episode) obj;
-		return new EqualsBuilder().append(this.getName(), ep.getName())
-				.append(this.getEpAbsolute(), ep.getEpAbsolute())
-				.append(this.getEpSeason(), ep.getEpSeason())
-				.append(this.getEpNumber(), ep.getEpNumber())
-				.append(this.getDescription(), ep.getDescription())
-				.append(this.getAiredDate(), ep.getAiredDate()).isEquals();
+	public String getStatus() {
+		return status;
 	}
-	
-	@Override
-	public int hashCode() {
-	return new HashCodeBuilder(17, 31).append(this.getName())
-			.append(this.getEpAbsolute())
-			.append(this.getEpSeason())
-			.append(this.getEpNumber())
-			.append(this.getDescription()).append(this.getAiredDate())
-			.toHashCode();
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

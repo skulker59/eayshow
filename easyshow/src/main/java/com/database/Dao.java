@@ -45,8 +45,8 @@ public class Dao {
 //		dbem.addShow("serie2", "2016", "desc", "horror", true);
 		dbem.listAllShows();
 		
-		dbem.deleteAllEpisodeFromShow(idShow);
-		dbem.listAllShows();
+//		dbem.deleteAllEpisodeFromShow(idShow);
+//		dbem.listAllShows();
 		dbem.shutdown();
 	}
 	

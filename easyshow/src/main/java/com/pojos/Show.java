@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,45 +35,11 @@ public class Show {
 	@Column(name = "isAnime", nullable=false)
 	private boolean isAnime;
 	
+	@Column(name = "path", nullable=false)
+	private String path;
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "show", orphanRemoval = true)
 	private List<Episode> listEpisodes = new ArrayList<>();
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getCreationYear() {
-		return creationYear;
-	}
-	public void setCreationYear(String creationYear) {
-		this.creationYear = creationYear;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getGenre() {
-		return genre;
-	}
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-	public boolean isAnime() {
-		return isAnime;
-	}
-	public void setAnime(boolean isAnime) {
-		this.isAnime = isAnime;
-	}
 	
 	public void addEpisode(Episode ep) {
 		if(!listEpisodes.contains(ep)) {
@@ -112,5 +77,48 @@ public class Show {
 			.append(this.getGenre())
 			.append(this.isAnime())
 			.toHashCode();
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCreationYear() {
+		return creationYear;
+	}
+	public void setCreationYear(String creationYear) {
+		this.creationYear = creationYear;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public boolean isAnime() {
+		return isAnime;
+	}
+	public void setAnime(boolean isAnime) {
+		this.isAnime = isAnime;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
 	}
 }

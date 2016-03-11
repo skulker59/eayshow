@@ -11,7 +11,6 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -115,10 +114,9 @@ public class FileSystem {
 	}
 	
 	@POST
-	@javax.ws.rs.Path("/angu/{param}")
+	@javax.ws.rs.Path("/angu")
 	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.TEXT_PLAIN)
-	public void testAngu(@PathParam("param") String param) throws TvDbException{
+	public void testAngu(List<ScannedShow> scannedShows) throws TvDbException{
 //		Series series = tvDB.getSeries("73739", "en");
 		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
 	}

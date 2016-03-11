@@ -2,8 +2,8 @@
 
 var app = angular.module('easyshow.controllers', []);
 
-app.controller('scanController', [ '$scope', 'firstScanFactory', 'testFactory',
-		function($scope, firstScanFactory, testFactory) {
+app.controller('scanController', [ '$scope', 'firstScanFactory', 'newDBFactory',
+		function($scope, firstScanFactory, newDBFactory) {
 			firstScanFactory.get({}, function(firstScanFactory) {
 				$scope.shows = firstScanFactory.listShows;
 			})
@@ -11,14 +11,19 @@ app.controller('scanController', [ '$scope', 'firstScanFactory', 'testFactory',
 			$scope.isHome = false;
 
 			$scope.callJersey = function(shows) {
+				var scannedShows = [];
 				var show;
 				for (show in shows) {
+					var temp = {};
 					console.log(show);
 					console.log(shows[show].selectedShow);
+					temp.name = show;
+					temp.properties = shows[show].selectedShow;
+					scannedShows.push(temp);
 				}
 
-				testFactory.save({
-					"param" : "toto"
+				newDBFactory.save({
+					"scannedShows" : scannedShows
 				});
 			}
 		} ]);
