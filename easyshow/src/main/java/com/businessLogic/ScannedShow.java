@@ -4,11 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ScannedShow {
 	
+	public ScannedShow() {
+	}
+	
 	@JsonProperty("name")
 	private String name;
 	
 	@JsonProperty("properties")
-	private String properties;
+	private ShowProperties properties;
 
 	public String getName() {
 		return name;
@@ -18,11 +21,11 @@ public class ScannedShow {
 		this.name = name;
 	}
 
-	public String getProperties() {
+	public ShowProperties getProperties() {
 		return properties;
 	}
 
-	public void setProperties(String properties) {
+	public void setProperties(ShowProperties properties) {
 		this.properties = properties;
 	}
 }

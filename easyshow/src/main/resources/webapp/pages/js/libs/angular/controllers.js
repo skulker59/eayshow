@@ -21,7 +21,7 @@ app.controller('scanController', [ '$scope', 'firstScanFactory', 'newDBFactory',
 					temp.properties = shows[show].selectedShow;
 					scannedShows.push(temp);
 				}
-
+				console.log(scannedShows);
 				newDBFactory.save({
 					"scannedShows" : scannedShows
 				});

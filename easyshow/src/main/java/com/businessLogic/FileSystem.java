@@ -17,11 +17,7 @@ import javax.ws.rs.core.MediaType;
 import com.database.Dao;
 import com.omertron.thetvdbapi.TheTVDBApi;
 import com.omertron.thetvdbapi.TvDbException;
-import com.omertron.thetvdbapi.model.Episode;
 import com.omertron.thetvdbapi.model.Series;
-
-
-//import javax.ws.rs.Path;
 
 @javax.ws.rs.Path("/folders")
 public class FileSystem {
@@ -106,18 +102,22 @@ public class FileSystem {
 		}
 	}
 	
-	@GET
-	@javax.ws.rs.Path("/test")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String tvdb2(){
-		return "toto";
-	}
+//	@POST
+//	@javax.ws.rs.Path("/toto")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.TEXT_PLAIN)
+//	public String test(String body) {
+////		Series series = tvDB.getSeries("73739", "en");
+////		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
+//		return "YEAH";
+//	}
 	
 	@POST
 	@javax.ws.rs.Path("/angu")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void testAngu(List<ScannedShow> scannedShows) throws TvDbException{
+	public String testAngu(List<ScannedShow> body) {
 //		Series series = tvDB.getSeries("73739", "en");
-		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
+//		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
+		return "YEAH";
 	}
 }

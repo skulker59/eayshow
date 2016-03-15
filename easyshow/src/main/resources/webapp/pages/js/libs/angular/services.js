@@ -11,11 +11,11 @@ services.factory('firstScanFactory', function ($resource) {
 });
 
 services.factory('newDBFactory', function ($resource) {
-    return $resource('/easyshow/api/folders/angu', {}, {
+    return $resource('/easyshow/api/folders/angu/:scannedShows', {}, {
         save: {
             method: 'POST',
-            params: {scannedShows : '@scannedShows'}
-//            isArray: false
+            params: {scannedShows : '@scannedShows'},
+            isArray: true
         }
     })
 });
