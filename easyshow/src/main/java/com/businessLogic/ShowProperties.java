@@ -15,9 +15,6 @@ public class ShowProperties {
 	@JsonProperty("seriesName")
 	private String seriesName;
 	
-	@JsonProperty("firstAired")
-	private String firstAired;
-	
 	@JsonProperty("overview")
 	private String overview;
 	
@@ -32,12 +29,6 @@ public class ShowProperties {
 	}
 	public void setSeriesName(String seriesName) {
 		this.seriesName = seriesName;
-	}
-	public String getFirstAired() {
-		return firstAired;
-	}
-	public void setFirstAired(String firstAired) {
-		this.firstAired = firstAired;
 	}
 	public String getOverview() {
 		return overview;

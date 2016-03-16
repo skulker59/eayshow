@@ -26,8 +26,8 @@ public class Show {
 	@Column(name = "creationYear")
 	private String creationYear;
 	
-	@Column(name = "description")
-	private String description;
+	@Column(name = "overview")
+	private String overview;
 	
 	@Column(name = "genre")
 	private String genre;
@@ -64,7 +64,7 @@ public class Show {
 		Show s = (Show) obj;
 		return new EqualsBuilder().append(this.getName(), s.getName())
 				.append(this.getCreationYear(), s.getCreationYear())
-				.append(this.getDescription(), s.getDescription())
+				.append(this.getOverview(), s.getOverview())
 				.append(this.getGenre(), s.getGenre())
 				.append(this.isAnime(), s.isAnime()).isEquals();
 	}
@@ -73,7 +73,7 @@ public class Show {
 	public int hashCode() {
 	return new HashCodeBuilder(17, 31).append(this.getName())
 			.append(this.getCreationYear())
-			.append(this.getDescription())
+			.append(this.getOverview())
 			.append(this.getGenre())
 			.append(this.isAnime())
 			.toHashCode();
@@ -97,11 +97,11 @@ public class Show {
 	public void setCreationYear(String creationYear) {
 		this.creationYear = creationYear;
 	}
-	public String getDescription() {
-		return description;
+	public String getOverview() {
+		return overview;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setOverview(String overview) {
+		this.overview = overview;
 	}
 	public String getGenre() {
 		return genre;

@@ -15,7 +15,7 @@ public class Dao {
 		Show s = new Show();
 		s.setName("serie1");
 		s.setCreationYear("2016");
-		s.setDescription("desc");
+		s.setOverview("desc");
 		s.setGenre("horror");
 		s.setAnime(true);
 		
@@ -63,7 +63,7 @@ public class Dao {
 		Show show = new Show();
 		show.setName(name);
 		show.setCreationYear(creationYear);
-		show.setDescription(description);
+		show.setOverview(description);
 		show.setGenre(genre);
 		show.setAnime(isAnime);
 		return dbem.addShow(show);
