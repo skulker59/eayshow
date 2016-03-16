@@ -19,7 +19,7 @@ import com.omertron.thetvdbapi.TheTVDBApi;
 import com.omertron.thetvdbapi.TvDbException;
 import com.omertron.thetvdbapi.model.Series;
 
-@javax.ws.rs.Path("/folders")
+@javax.ws.rs.Path("/datasystem")
 public class FileSystem {
 	
 	private static final String TVDB_API_KEY = "12927F74E735767F";
@@ -46,7 +46,6 @@ public class FileSystem {
 				if(pathShow.toFile().isDirectory()) {
 					String showName = pathShow.getFileName().toString();
 					listShow.setListSeries(tvDB.searchSeries(showName, "en"));
-//					scan.getListShows().add(listShow);
 					scan.getListShows().put(showName, listShow);
 				}
 				
@@ -102,22 +101,11 @@ public class FileSystem {
 		}
 	}
 	
-//	@POST
-//	@javax.ws.rs.Path("/toto")
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String test(String body) {
-////		Series series = tvDB.getSeries("73739", "en");
-////		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
-//		return "YEAH";
-//	}
-	
 	@POST
-	@javax.ws.rs.Path("/angu")
+	@javax.ws.rs.Path("/addshows")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String testAngu(List<ScannedShow> body) {
+	public void testAngu(List<ScannedShow> body) {
 //		Series series = tvDB.getSeries("73739", "en");
 //		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
-		return "YEAH";
 	}
 }

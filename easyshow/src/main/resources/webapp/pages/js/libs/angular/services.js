@@ -1,7 +1,7 @@
 var services = angular.module('easyshow.services', ['ngResource']);
 
-services.factory('firstScanFactory', function ($resource) {
-    return $resource('/easyshow/api/folders/scan', {}, {
+services.factory('scanFactory', function ($resource) {
+    return $resource('/easyshow/api/datasystem/scan', {}, {
         query: {
             method: 'GET',
             params: {},
@@ -10,11 +10,10 @@ services.factory('firstScanFactory', function ($resource) {
     })
 });
 
-services.factory('newDBFactory', function ($resource) {
-    return $resource('/easyshow/api/folders/angu/:scannedShows', {}, {
+services.factory('addShowsFactory', function ($resource) {
+    return $resource('/easyshow/api/datasystem/addshows', {}, {
         save: {
             method: 'POST',
-            params: {scannedShows : '@scannedShows'},
             isArray: true
         }
     })

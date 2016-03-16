@@ -1,17 +1,16 @@
 'use strict';
-
 var app = angular.module('easyshow.controllers', []);
 
-app.controller('scanController', [ '$scope', 'firstScanFactory', 'newDBFactory',
-		function($scope, firstScanFactory, newDBFactory) {
-			firstScanFactory.get({}, function(firstScanFactory) {
-				$scope.shows = firstScanFactory.listShows;
+app.controller('scanController', [ '$scope', 'scanFactory', 'addShowsFactory',
+		function($scope, scanFactory, addShowsFactory) {
+			scanFactory.get({}, function(scanFactory) {
+				$scope.shows = scanFactory.listShows;
 			})
 			$scope.isScan = true;
 			$scope.isHome = false;
 
 			$scope.callJersey = function(shows) {
-				var scannedShows = [];
+				var selectedShows = [];
 				var show;
 				for (show in shows) {
 					var temp = {};
@@ -19,11 +18,9 @@ app.controller('scanController', [ '$scope', 'firstScanFactory', 'newDBFactory',
 					console.log(shows[show].selectedShow);
 					temp.name = show;
 					temp.properties = shows[show].selectedShow;
-					scannedShows.push(temp);
+					selectedShows.push(temp);
 				}
-				console.log(scannedShows);
-				newDBFactory.save({
-					"scannedShows" : scannedShows
-				});
+				console.log(selectedShows);
+				addShowsFactory.save(selectedShows);
 			}
 		} ]);
