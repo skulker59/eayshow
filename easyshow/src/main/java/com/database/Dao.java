@@ -14,9 +14,7 @@ public class Dao {
 	public void callDBEM() {
 		Show s = new Show();
 		s.setName("serie1");
-		s.setCreationYear("2016");
 		s.setOverview("desc");
-		s.setGenre("horror");
 		s.setAnime(true);
 		
 		Episode ep = new Episode();
@@ -59,12 +57,10 @@ public class Dao {
      * @param isAnime Indication pour la gestion des épisodes.
      * @return L'id de la série ajoutée.
      */
-	public int addShow(String name, String creationYear, String description, String genre, boolean isAnime) {
+	public int addShow(String name, String description, boolean isAnime) {
 		Show show = new Show();
 		show.setName(name);
-		show.setCreationYear(creationYear);
 		show.setOverview(description);
-		show.setGenre(genre);
 		show.setAnime(isAnime);
 		return dbem.addShow(show);
 	}

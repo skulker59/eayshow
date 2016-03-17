@@ -11,7 +11,7 @@ services.factory('scanFactory', function ($resource) {
 });
 
 services.factory('addShowsFactory', function ($resource) {
-    return $resource('/easyshow/api/datasystem/addshows', {}, {
+    return $resource('/easyshow/api/shows/add', {}, {
         save: {
             method: 'POST',
             isArray: true

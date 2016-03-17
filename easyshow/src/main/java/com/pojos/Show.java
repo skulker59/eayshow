@@ -23,20 +23,17 @@ public class Show {
 	@Column(name = "name", unique=true, nullable=false)
 	private String name;
 	
-	@Column(name = "creationYear")
-	private String creationYear;
-	
 	@Column(name = "overview")
 	private String overview;
-	
-	@Column(name = "genre")
-	private String genre;
 	
 	@Column(name = "isAnime", nullable=false)
 	private boolean isAnime;
 	
 	@Column(name = "path", nullable=false)
 	private String path;
+	
+	@Column(name = "idTVDB", nullable=false)
+	private String idTVDB;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "show", orphanRemoval = true)
 	private List<Episode> listEpisodes = new ArrayList<>();
@@ -63,19 +60,17 @@ public class Show {
 			return false;
 		Show s = (Show) obj;
 		return new EqualsBuilder().append(this.getName(), s.getName())
-				.append(this.getCreationYear(), s.getCreationYear())
 				.append(this.getOverview(), s.getOverview())
-				.append(this.getGenre(), s.getGenre())
-				.append(this.isAnime(), s.isAnime()).isEquals();
+				.append(this.isAnime(), s.isAnime())
+				.append(this.getIdTVDB(), s.getIdTVDB()).isEquals();
 	}
 	
 	@Override
 	public int hashCode() {
 	return new HashCodeBuilder(17, 31).append(this.getName())
-			.append(this.getCreationYear())
 			.append(this.getOverview())
-			.append(this.getGenre())
 			.append(this.isAnime())
+			.append(this.getIdTVDB())
 			.toHashCode();
 	}
 	
@@ -91,23 +86,11 @@ public class Show {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCreationYear() {
-		return creationYear;
-	}
-	public void setCreationYear(String creationYear) {
-		this.creationYear = creationYear;
-	}
 	public String getOverview() {
 		return overview;
 	}
 	public void setOverview(String overview) {
 		this.overview = overview;
-	}
-	public String getGenre() {
-		return genre;
-	}
-	public void setGenre(String genre) {
-		this.genre = genre;
 	}
 	public boolean isAnime() {
 		return isAnime;
@@ -120,5 +103,11 @@ public class Show {
 	}
 	public void setPath(String path) {
 		this.path = path;
+	}
+	public String getIdTVDB() {
+		return idTVDB;
+	}
+	public void setIdTVDB(String idTVDB) {
+		this.idTVDB = idTVDB;
 	}
 }

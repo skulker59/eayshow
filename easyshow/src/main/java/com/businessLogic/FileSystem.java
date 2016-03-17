@@ -6,24 +6,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
-import java.util.List;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.database.Dao;
 import com.omertron.thetvdbapi.TheTVDBApi;
-import com.omertron.thetvdbapi.TvDbException;
-import com.omertron.thetvdbapi.model.Series;
 
 @javax.ws.rs.Path("/datasystem")
 public class FileSystem {
 	
 	private static final String TVDB_API_KEY = "12927F74E735767F";
-	TheTVDBApi tvDB = new TheTVDBApi(TVDB_API_KEY);
+	private TheTVDBApi tvDB = new TheTVDBApi(TVDB_API_KEY);
 	
 	@GET
 	@javax.ws.rs.Path("/scan")
@@ -84,28 +79,20 @@ public class FileSystem {
 		//dao.close();
 	}
 	
-	@GET
-	@javax.ws.rs.Path("/tvdb")
-	@Produces(MediaType.TEXT_PLAIN)
-	public void tvdb(){
-//		TheTVDBApi tvDB = new TheTVDBApi(TVDB_API_KEY);
-		try {
-			List<Series> results = tvDB.searchSeries("Hannibal", "en");
-			int toto = 1;
-//			Series series = tvDB.getSeries("259063", "fr");
-//			return series.toString();
-		} catch (TvDbException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-//			return null;
-		}
-	}
-	
-	@POST
-	@javax.ws.rs.Path("/addshows")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void testAngu(List<ScannedShow> body) {
-//		Series series = tvDB.getSeries("73739", "en");
-//		List<Episode> episodes = tvDB.getAllEpisodes("73739", "en");
-	}
+//	@GET
+//	@javax.ws.rs.Path("/tvdb")
+//	@Produces(MediaType.TEXT_PLAIN)
+//	public void tvdb(){
+////		TheTVDBApi tvDB = new TheTVDBApi(TVDB_API_KEY);
+//		try {
+//			List<Series> results = tvDB.searchSeries("Hannibal", "en");
+//			int toto = 1;
+////			Series series = tvDB.getSeries("259063", "fr");
+////			return series.toString();
+//		} catch (TvDbException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+////			return null;
+//		}
+//	}
 }
