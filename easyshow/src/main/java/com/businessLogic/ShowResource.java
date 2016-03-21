@@ -72,16 +72,19 @@ public class ShowResource {
 							// Création d'une map afin de vérifier rapidement la présence ou non d'épisodes.
 //							Map<EpisodeId, Episode> episodesMap = episodes.stream().filter(e -> e.getSeasonNumber() > 0).collect(Collectors.toMap(e -> new EpisodeId(e.getSeasonNumber(), e.getEpisodeNumber()), e -> e));
 							
-							for(String episodeName : FV.getListFilesNames())
+							for(Episode episode : episodes)
 							{
-								int firstSeparator = episodeName.indexOf('[');
-								int lastSeparator = episodeName.indexOf(']');
+								com.pojos.Episode epDatabase = new com.pojos.Episode();
+								epDatabase.setName(episode.getEpisodeName());
+								epDatabase.setEpSeason(episode.getSeasonNumber());
+								epDatabase.setEpNumber(episode.getEpisodeNumber());
+								epDatabase.setEpAbsolute(-1);
+								epDatabase.setDescription(episode.getOverview());
+								epDatabase.setAiredDate(episode.getFirstAired());
 								
-								if(firstSeparator != -1 && lastSeparator != -1) {
-									String couple = episodeName.substring(firstSeparator + 1, lastSeparator);
-									int ep = Integer.parseInt(couple.substring(1, 3));
-									int season = Integer.parseInt(couple.substring(4, couple.length()));
-								}
+								EpisodeId epId = new EpisodeId(episode.getSeasonNumber(), episode.getEpisodeNumber());
+								boolean presence = FV.getEpisodesSet().contains(epId);
+								epDatabase.setStatus((presence == true ? "FOUND" : "NOT_FOUND"));
 							}
 						}
 					}
@@ -94,7 +97,7 @@ public class ShowResource {
 		}
 	}
 	
-	class EpisodeId {
+	static class EpisodeId {
 		int season;
 		int episode;
 		
@@ -125,7 +128,7 @@ public class ShowResource {
 		
 		@Override
 		public String toString() {
-			return season + " " + episode;
+			return "S" + season + "E" + episode;
 		}
 	}
 }

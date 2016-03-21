@@ -24,6 +24,10 @@ public class FileVisitorImpl implements FileVisitor<Path> {
 	public List<String> getListFilesNames() {
 		return listFilesNames;
 	}
+	
+	public Set<EpisodeId> getEpisodesSet() {
+		return episodesSet;
+	}
 
 	@Override
 	public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
@@ -34,6 +38,19 @@ public class FileVisitorImpl implements FileVisitor<Path> {
 	public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 		if(pathMatcher.matches(file)) {
 			listFilesNames.add(file.getFileName().toString());
+			
+			String episodeName = file.getFileName().toString();
+			int firstSeparator = episodeName.indexOf('[');
+			int lastSeparator = episodeName.indexOf(']');
+			
+			// Extraction du numéro de saison et d'épisode.
+			if(firstSeparator != -1 && lastSeparator != -1) {
+				String couple = episodeName.substring(firstSeparator + 1, lastSeparator);
+				int ep = Integer.parseInt(couple.substring(1, 3));
+				int season = Integer.parseInt(couple.substring(4, couple.length()));
+				
+				episodesSet.add(new EpisodeId(season, ep));
+			}
 		}
 			
 		return FileVisitResult.CONTINUE;
