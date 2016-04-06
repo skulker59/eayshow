@@ -61,6 +61,7 @@ public class DatabaseEM {
 				System.out.println(ep.getName());
 			}
 		}
+		System.out.println("FIN LISTAGE");
 		return listShows;
 	}
 	
@@ -69,8 +70,15 @@ public class DatabaseEM {
 	 * @param id Id de la série à retrouver.
 	 * @return Une série.
 	 */
-	public Show getShow(int id) {
+	public Show getShowById(int id) {
 		Show show = em.find(Show.class, id);
+		return show;
+	}
+	
+	public Show getShowByName(String name) {
+		Show show = em.createQuery("SELECT s FROM Show s WHERE s.name LIKE :name", Show.class)
+				.setParameter("name", name).getSingleResult();
+		
 		return show;
 	}
 	
@@ -168,7 +176,7 @@ public class DatabaseEM {
     
     public boolean deleteAllEpisodeFromSeason(int idShow, final int season) {
     	try {
-    		Show s = getShow(idShow);
+    		Show s = getShowById(idShow);
   		  
     		em.getTransaction().begin();
 
@@ -191,7 +199,7 @@ public class DatabaseEM {
     
     public boolean deleteAllEpisodeFromShow(int idShow) {
     	try {
-    		Show s = getShow(idShow);
+    		Show s = getShowById(idShow);
   		  	
     		em.getTransaction().begin();
     		s.getListEpisodes().clear();

@@ -50,24 +50,20 @@ public class Dao {
 	
     /**
      * Ajoute une série.
-     * @param name Nom de la serie
-     * @param creationYear Annee de creation
-     * @param description Description de la serie
-     * @param genre Genre (comedie, horreur, ...)
-     * @param isAnime Indication pour la gestion des épisodes.
+     * @param show Série à ajouter.
      * @return L'id de la série ajoutée.
      */
-	public int addShow(String name, String description, boolean isAnime) {
-		Show show = new Show();
-		show.setName(name);
-		show.setOverview(description);
-		show.setAnime(isAnime);
+	public int addShow(Show show) {
 		return dbem.addShow(show);
 	}
 	
-	public void getShow(int id)
+	public void getShowById(int id)
 	{
-		dbem.getShow(id);
+		dbem.getShowById(id);
+	}
+	
+	public void getShowByName(String name) {
+		
 	}
 	
     /**

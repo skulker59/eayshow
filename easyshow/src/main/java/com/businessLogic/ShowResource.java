@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.database.Dao;
 import com.omertron.thetvdbapi.TheTVDBApi;
 import com.omertron.thetvdbapi.TvDbException;
 import com.omertron.thetvdbapi.model.Episode;
@@ -41,9 +42,11 @@ public class ShowResource {
 		try(DirectoryStream<Path> stream = Files.newDirectoryStream(DDPath)) {
 //			stream = Files.newDirectoryStream(DDPath);
 			Iterator<Path> iterator = stream.iterator();
+			int nbBodyShows = body.size();
+			int nbTreatedShows = 0;
 			
 			// Itérations sur les dossiers séries.
-			while (iterator.hasNext()) {
+			while (iterator.hasNext() || nbTreatedShows <= nbBodyShows) {
 				Path pathShow = iterator.next();
 				
 				// Test si le fichier est bien un dossier.
@@ -56,6 +59,8 @@ public class ShowResource {
 					while(iteratorShows.hasNext() && showFound == false) {
 						ScannedShow bodyShow = iteratorShows.next();
 						if(fileName.equals(bodyShow.getName())){
+							showFound = true;
+							
 							// Création du nouveau show.
 							Show newShow = new Show();
 							newShow.setName(bodyShow.getProperties().getSeriesName());
@@ -85,7 +90,13 @@ public class ShowResource {
 								EpisodeId epId = new EpisodeId(episode.getSeasonNumber(), episode.getEpisodeNumber());
 								boolean presence = FV.getEpisodesSet().contains(epId);
 								epDatabase.setStatus((presence == true ? "FOUND" : "NOT_FOUND"));
+								
+								// Association de l'épisode à la série.
+								newShow.addEpisode(epDatabase);
 							}
+							
+							Dao dao = new Dao();
+							dao.addShow(newShow);
 						}
 					}
 				}
