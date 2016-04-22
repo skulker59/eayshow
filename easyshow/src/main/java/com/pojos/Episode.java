@@ -33,7 +33,7 @@ public class Episode {
 	@Column(name = "epAbsolute")
 	private int epAbsolute;
 
-	@Column(name = "description")
+	@Column(length=1000, name = "description")
 	private String description;
 
 	@Column(name = "airedDate")

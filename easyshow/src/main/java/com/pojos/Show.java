@@ -23,7 +23,7 @@ public class Show {
 	@Column(name = "name", unique=true, nullable=false)
 	private String name;
 	
-	@Column(name = "overview")
+	@Column(length= 1000 , name = "overview")
 	private String overview;
 	
 	@Column(name = "isAnime", nullable=false)

@@ -18,3 +18,13 @@ services.factory('addShowsFactory', function ($resource) {
         }
     })
 });
+
+services.factory('getShowsFactory', function ($resource) {
+    return $resource('/easyshow/api/shows/get/all', {}, {
+        query: {
+            method: 'GET',
+            params: {},
+            isArray: true
+        }
+    })
+});

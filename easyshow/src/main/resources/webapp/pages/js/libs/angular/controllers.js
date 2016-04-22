@@ -21,3 +21,13 @@ app.controller('scanController', [ '$scope', 'scanFactory', 'addShowsFactory',
 				addShowsFactory.save(selectedShows);
 			}
 		} ]);
+
+app.controller('homeController', [ '$scope', 'getShowsFactory',
+       function($scope, getShowsFactory) {
+		getShowsFactory.get({}, function(getShowsFactory) {
+			$scope.shows = getShowsFactory.listShows;
+		})
+		$scope.isScan = false;
+		$scope.isHome = true;
+
+	} ]);

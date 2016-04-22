@@ -9,7 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -35,7 +37,6 @@ public class ShowResource {
 	public void addShows(List<ScannedShow> body) {
 //		Series series = tvDB.getSeries("73739", "en");
 
-		
 		// Chemin vers le dossier contenant toutes les séries.
 		Path DDPath = Paths.get("D:/SeriesTest");
 		
@@ -106,6 +107,15 @@ public class ShowResource {
 		} catch (TvDbException e) {
 			
 		}
+	}
+	
+	@GET
+	@javax.ws.rs.Path("/get/all")
+	@Produces(MediaType.APPLICATION_JSON)
+	public HomeShows getShows() {
+		HomeShows HShows = new HomeShows();
+		HShows.setListShows(new Dao().getAllShows());
+		return HShows;
 	}
 	
 	static class EpisodeId {

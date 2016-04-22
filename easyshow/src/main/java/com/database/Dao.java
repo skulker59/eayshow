@@ -1,5 +1,7 @@
 package com.database;
 
+import java.util.Collection;
+
 import com.pojos.Episode;
 import com.pojos.Show;
 
@@ -55,6 +57,11 @@ public class Dao {
      */
 	public int addShow(Show show) {
 		return dbem.addShow(show);
+	}
+	
+	public Collection<Show> getAllShows()
+	{
+		return dbem.listAllShows();
 	}
 	
 	public void getShowById(int id)
