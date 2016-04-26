@@ -1486,6 +1486,7 @@ a.isotope-img-container img {display: block; width: 100%;}
 }
 
 .five-columns.isotope.full-width-progression {
+	padding-top : 15px;
 	padding-left : 22px;
 }
 

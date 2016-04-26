@@ -13,6 +13,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -34,7 +35,8 @@ public class ShowResource {
 	@POST
 	@javax.ws.rs.Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void addShows(List<ScannedShow> body) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response addShows(List<ScannedShow> body) {
 //		Series series = tvDB.getSeries("73739", "en");
 
 		// Chemin vers le dossier contenant toutes les séries.
@@ -107,6 +109,8 @@ public class ShowResource {
 		} catch (TvDbException e) {
 			
 		}
+		return Response.status(Response.Status.OK) // 200
+	            .build();
 	}
 	
 	@GET

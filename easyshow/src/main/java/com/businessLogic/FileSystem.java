@@ -7,7 +7,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -77,6 +79,15 @@ public class FileSystem {
 		}
 		
 		//dao.close();
+	}
+	
+	@POST
+	@javax.ws.rs.Path("/testpost")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String db2(){
+		int titi = 0;
+		return "{retour : true}";
 	}
 	
 //	@GET

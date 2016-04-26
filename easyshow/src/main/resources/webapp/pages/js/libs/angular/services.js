@@ -3,9 +3,7 @@ var services = angular.module('easyshow.services', ['ngResource']);
 services.factory('scanFactory', function ($resource) {
     return $resource('/easyshow/api/datasystem/scan', {}, {
         query: {
-            method: 'GET',
-            params: {},
-            isArray: true
+            method: 'GET'
         }
     })
 });
