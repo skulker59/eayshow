@@ -23,6 +23,9 @@ public class Show {
 	@Column(name = "name", unique=true, nullable=false)
 	private String name;
 	
+	@Column(name = "dbName", unique=true, nullable=false)
+	private String dbName;
+	
 	@Column(length= 1000 , name = "overview")
 	private String overview;
 	
@@ -59,7 +62,8 @@ public class Show {
 		if (getClass() != obj.getClass())
 			return false;
 		Show s = (Show) obj;
-		return new EqualsBuilder().append(this.getName(), s.getName())
+		return new EqualsBuilder().append(this.getDbName(), s.getDbName())
+				.append(this.getName(), s.getName())
 				.append(this.getOverview(), s.getOverview())
 				.append(this.isAnime(), s.isAnime())
 				.append(this.getIdTVDB(), s.getIdTVDB()).isEquals();
@@ -85,6 +89,12 @@ public class Show {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getDbName() {
+		return dbName;
+	}
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
 	}
 	public String getOverview() {
 		return overview;

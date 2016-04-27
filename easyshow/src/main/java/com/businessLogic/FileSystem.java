@@ -12,15 +12,23 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.database.Dao;
 import com.omertron.thetvdbapi.TheTVDBApi;
+import com.pojos.Show;
 
 @javax.ws.rs.Path("/datasystem")
 public class FileSystem {
 	
 	private static final String TVDB_API_KEY = "12927F74E735767F";
 	private TheTVDBApi tvDB = new TheTVDBApi(TVDB_API_KEY);
+	
+	private Dao database;
+	
+	public FileSystem() {
+		database = new Dao();
+	}
 	
 	@GET
 	@javax.ws.rs.Path("/scan")
@@ -42,11 +50,17 @@ public class FileSystem {
 				// Test si le fichier est bien un dossier.
 				if(pathShow.toFile().isDirectory()) {
 					String showName = pathShow.getFileName().toString();
-					listShow.setListSeries(tvDB.searchSeries(showName, "en"));
-					scan.getListShows().put(showName, listShow);
+					
+					// Suppression des séries déjà présentes en base.
+					Show s = database.getShowByName(showName);
+					
+					if(s == null) {
+						listShow.setListSeries(tvDB.searchSeries(showName, "en"));
+						scan.getListShows().put(showName, listShow);
+					}
 				}
 				
-				// Itération pour les épisodes de chaque série.
+				// Itération pour les épisodes de chaque séries.
 //				FileVisitorImpl FV = new FileVisitorImpl();
 //				Files.walkFileTree(pathShow, FV);
 //				for(String fileName : FV.getListFilesNames())
@@ -81,13 +95,12 @@ public class FileSystem {
 		//dao.close();
 	}
 	
-	@POST
+	@GET
 	@javax.ws.rs.Path("/testpost")
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String db2(){
-		int titi = 0;
-		return "{retour : true}";
+	public Show db2(){
+		Dao dao = new Dao();
+		return dao.getShowByName("Vikins");
 	}
 	
 //	@GET

@@ -9,7 +9,7 @@ app.controller('scanController', [ '$scope', '$resource', '$http', '$q', '$log',
 			$scope.isScan = true;
 			$scope.isHome = false;
 
-			$scope.callJersey = function(shows) {
+			$scope.addShowsToBDD = function(shows) {
 				var selectedShows = [];
 				var show;
 				for (show in shows) {
@@ -18,34 +18,11 @@ app.controller('scanController', [ '$scope', '$resource', '$http', '$q', '$log',
 					temp.properties = shows[show].selectedShow;
 					selectedShows.push(temp);
 				}
-//				addShowsFactory.save(selectedShows);
-//				var promise = addShowsFactory.save(selectedShows);
-//				console.log(promise);
-//				promise.then(
-//				  function() {
-//				    alert("Yeah !!");
-//				  });
-//				function testPromise() {
-//					  var deferred = $q.defer();
-//		
-//					  addShowsFactory.save(selectedShows, function(addShowsFactory) {
-//						  alert(addShowsFactory.value);
-//						  });
-//					  deferred.resolve('test');
-//		
-//					  return deferred.promise;
-//				}
-//				var promise = testPromise();
-//				promise.then(function(shows) {
-//			      alert("Yeah !")
-//			      },function(){
-//			    	  alert('error');
-//			      });
 				$http.post('/easyshow/api/shows/add', selectedShows).then(
-						function(data){
-							alert("Yes");
-						}, function(data){
-							alert("No");
+						function successCallback(data){
+							window.location="home.html";
+						}, function errorCallback(data){
+							alert("Erreur lors de l'ajout des séries en bdd.");
 						});
 			}
 		} ]);

@@ -39,6 +39,8 @@ public class DatabaseEM {
 		idShow = show.getId();
 		
 		em.getTransaction().commit();
+		
+		System.out.println("Ajout de la série : " + show.getName());
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			idShow = -1;
@@ -75,9 +77,16 @@ public class DatabaseEM {
 		return show;
 	}
 	
-	public Show getShowByName(String name) {
-		Show show = em.createQuery("SELECT s FROM Show s WHERE s.name LIKE :name", Show.class)
-				.setParameter("name", name).getSingleResult();
+	public Show getShowByName(String dbName) {
+	
+		Show show = new Show();
+		try {
+			show = em.createQuery("SELECT s FROM Show s WHERE s.dbName LIKE :dbName", Show.class)
+					.setParameter("dbName", dbName).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			show = null;
+		}
 		
 		return show;
 	}

@@ -19,6 +19,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.database.Dao;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.omertron.thetvdbapi.TheTVDBApi;
 import com.omertron.thetvdbapi.TvDbException;
 import com.omertron.thetvdbapi.model.Episode;
@@ -30,26 +31,29 @@ public class ShowResource {
 	private static final String TVDB_API_KEY = "12927F74E735767F";
 	private TheTVDBApi tvDB = new TheTVDBApi(TVDB_API_KEY);
 	
-	public ShowResource(){}
+	private Dao database;
+	
+	public ShowResource(){
+		database = new Dao();
+	}
 	
 	@POST
 	@javax.ws.rs.Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public Response addShows(List<ScannedShow> body) {
 //		Series series = tvDB.getSeries("73739", "en");
-
+		
 		// Chemin vers le dossier contenant toutes les séries.
 		Path DDPath = Paths.get("D:/SeriesTest");
 		
 		try(DirectoryStream<Path> stream = Files.newDirectoryStream(DDPath)) {
-//			stream = Files.newDirectoryStream(DDPath);
+
 			Iterator<Path> iterator = stream.iterator();
 			int nbBodyShows = body.size();
 			int nbTreatedShows = 0;
 			
 			// Itérations sur les dossiers séries.
-			while (iterator.hasNext() || nbTreatedShows <= nbBodyShows) {
+			while (iterator.hasNext() && nbTreatedShows < nbBodyShows) {
 				Path pathShow = iterator.next();
 				
 				// Test si le fichier est bien un dossier.
@@ -66,6 +70,7 @@ public class ShowResource {
 							
 							// Création du nouveau show.
 							Show newShow = new Show();
+							newShow.setDbName(bodyShow.getName());
 							newShow.setName(bodyShow.getProperties().getSeriesName());
 							newShow.setOverview(bodyShow.getProperties().getOverview());
 							newShow.setAnime(false);
@@ -98,19 +103,24 @@ public class ShowResource {
 								newShow.addEpisode(epDatabase);
 							}
 							
-							Dao dao = new Dao();
-							dao.addShow(newShow);
+							database.addShow(newShow);
+							nbTreatedShows++;
 						}
 					}
 				}
 			}
 		} catch(IOException io) {
-			String erreur = "";
+			io.printStackTrace();
+			return Response.status(Response.Status.EXPECTATION_FAILED).build();
 		} catch (TvDbException e) {
-			
+			e.printStackTrace();
+			return Response.status(Response.Status.EXPECTATION_FAILED).build();
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			return Response.status(Response.Status.EXPECTATION_FAILED).build();
 		}
-		return Response.status(Response.Status.OK) // 200
-	            .build();
+		
+		return Response.status(Response.Status.OK).build();
 	}
 	
 	@GET

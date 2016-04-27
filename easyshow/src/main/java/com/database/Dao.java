@@ -69,8 +69,8 @@ public class Dao {
 		dbem.getShowById(id);
 	}
 	
-	public void getShowByName(String name) {
-		
+	public Show getShowByName(String dbName) {
+		return dbem.getShowByName(dbName);
 	}
 	
     /**
