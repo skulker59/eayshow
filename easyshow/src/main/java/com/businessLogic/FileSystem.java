@@ -51,7 +51,7 @@ public class FileSystem {
 				if(pathShow.toFile().isDirectory()) {
 					String showName = pathShow.getFileName().toString();
 					
-					// Suppression des séries déjà présentes en base.
+					// Check si la série est présente en base.
 					Show s = database.getShowByName(showName);
 					
 					if(s == null) {
@@ -59,14 +59,6 @@ public class FileSystem {
 						scan.getListShows().put(showName, listShow);
 					}
 				}
-				
-				// Itération pour les épisodes de chaque séries.
-//				FileVisitorImpl FV = new FileVisitorImpl();
-//				Files.walkFileTree(pathShow, FV);
-//				for(String fileName : FV.getListFilesNames())
-//				{
-//					response += "\t" + fileName + "\n";
-//				}
 			}
 		} catch(Exception e) {
 			scan.setListShows(null);
@@ -98,9 +90,9 @@ public class FileSystem {
 	@GET
 	@javax.ws.rs.Path("/testpost")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Show db2(){
-		Dao dao = new Dao();
-		return dao.getShowByName("Vikins");
+	public Response db2(){
+		Response res = Response.ok("{msg : erreur quelque part !!}", MediaType.APPLICATION_JSON).build();
+		return res;
 	}
 	
 //	@GET

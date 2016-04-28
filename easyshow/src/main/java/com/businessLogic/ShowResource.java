@@ -120,7 +120,7 @@ public class ShowResource {
 			return Response.status(Response.Status.EXPECTATION_FAILED).build();
 		}
 		
-		return Response.status(Response.Status.OK).build();
+		return Response.ok("{msg : erreur quelque part !!}", MediaType.APPLICATION_JSON).build();
 	}
 	
 	@GET
