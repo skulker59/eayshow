@@ -29,6 +29,9 @@ public class Show {
 	@Column(length= 1000 , name = "overview")
 	private String overview;
 	
+	@Column(length= 200 , name = "urlPoster")
+	private String urlPoster;
+	
 	@Column(name = "isAnime", nullable=false)
 	private boolean isAnime;
 	
@@ -65,6 +68,7 @@ public class Show {
 		return new EqualsBuilder().append(this.getDbName(), s.getDbName())
 				.append(this.getName(), s.getName())
 				.append(this.getOverview(), s.getOverview())
+				.append(this.getUrlPoster(), s.getUrlPoster())
 				.append(this.isAnime(), s.isAnime())
 				.append(this.getIdTVDB(), s.getIdTVDB()).isEquals();
 	}
@@ -73,6 +77,7 @@ public class Show {
 	public int hashCode() {
 	return new HashCodeBuilder(17, 31).append(this.getName())
 			.append(this.getOverview())
+			.append(this.getUrlPoster())
 			.append(this.isAnime())
 			.append(this.getIdTVDB())
 			.toHashCode();
@@ -101,6 +106,12 @@ public class Show {
 	}
 	public void setOverview(String overview) {
 		this.overview = overview;
+	}
+	public String getUrlPoster() {
+		return urlPoster;
+	}
+	public void setUrlPoster(String urlPoster) {
+		this.urlPoster = urlPoster;
 	}
 	public boolean isAnime() {
 		return isAnime;

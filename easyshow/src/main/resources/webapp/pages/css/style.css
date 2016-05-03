@@ -1224,6 +1224,12 @@ p.form-allowed-tags {font-size:85%;}
 h3#reply-title {font: 600 21px Poppins; margin-bottom: 30px;}
 body #main #comments-soundbyte #respond input#submit {margin-top: 12px;}
 
+label.showsChoice {
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: inherit;
+}
+
 /*
 =============================================== 10. FOOTER STYLES ===============================================
 */

@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 
 import com.database.Dao;
 import com.omertron.thetvdbapi.TheTVDBApi;
+import com.omertron.thetvdbapi.TvDbException;
 import com.pojos.Show;
 
 @javax.ws.rs.Path("/datasystem")
@@ -89,9 +90,18 @@ public class FileSystem {
 	
 	@GET
 	@javax.ws.rs.Path("/testpost")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public Response db2(){
-		Response res = Response.ok("{msg : erreur quelque part !!}", MediaType.APPLICATION_JSON).build();
+		TheTVDBApi tvDB = new TheTVDBApi(TVDB_API_KEY);
+		String url = "";
+		try {
+			url = tvDB.getBanners("73739").getPosterList().get(0).getUrl();
+		} catch (TvDbException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Response res = Response.ok(url, MediaType.TEXT_PLAIN).build();
 		return res;
 	}
 	

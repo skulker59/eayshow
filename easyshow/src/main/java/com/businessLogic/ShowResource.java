@@ -77,6 +77,9 @@ public class ShowResource {
 							newShow.setPath(pathShow.toAbsolutePath().toString());
 							newShow.setIdTVDB(bodyShow.getProperties().getId());
 							
+							// Récupération du poster.
+							newShow.setUrlPoster(tvDB.getBanners(newShow.getIdTVDB()).getPosterList().get(0).getUrl());
+							
 							// Récupération et ajout des épisodes de la série.
 							List<Episode> episodes = tvDB.getAllEpisodes(newShow.getIdTVDB(), "en");
 							FileVisitorImpl FV = new FileVisitorImpl();
@@ -120,7 +123,7 @@ public class ShowResource {
 			return Response.status(Response.Status.EXPECTATION_FAILED).build();
 		}
 		
-		return Response.ok("{msg : erreur quelque part !!}", MediaType.APPLICATION_JSON).build();
+		return Response.ok("TEST MSG", MediaType.TEXT_PLAIN).build();
 	}
 	
 	@GET
