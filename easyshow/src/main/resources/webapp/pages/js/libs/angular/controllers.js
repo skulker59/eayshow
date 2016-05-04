@@ -3,6 +3,7 @@ var app = angular.module('easyshow.controllers', []);
 
 app.controller('scanController', [ '$scope', '$resource', '$http', '$q', '$log', '$timeout', 'scanFactory', 'addShowsFactory',
 		function($scope, $resource, $http, $q, $log, $timeout, scanFactory, addShowsFactory) {
+			$scope.shows = null;
 			scanFactory.get({}, function(scanFactory) {
 				$scope.shows = scanFactory.listShows;
 			});

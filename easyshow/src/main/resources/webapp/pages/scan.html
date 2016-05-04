@@ -13,6 +13,7 @@
 		<script src="./js/libs/angular/controllers.js"></script>
 		<script src="./js/libs/angular/services.js"></script>
 		<script src="./js/libs/angular/angular-resource.min.js"></script>
+		<link rel="stylesheet" href="./css/stylePerso.css">
 	</head>
 	<body class="blog faq soundbyte" ng-controller="scanController">
 	    <header id="masthead-progression" class="site-header-progression" ng-include src="'header.html'"></header>	
@@ -33,8 +34,20 @@
 						</div>
 					</div>
 	            </div>
+				<button ng-if="shows" ng-click="addShowsToBDD(shows)" class="ls-sc-button default"  type="button" id="myStateButton" data-processing-text="Processing..." autocomplete="off">
+				  Add
+				</button>
+				<!-- <img src="./css/spinner.svg"> -->
 				
-				<a class="ls-sc-button default" ng-click="addShowsToBDD(shows)">Valider</a>
+				<!-- Trigger/Open The Modal -->
+				<button id="myBtn">Open Modal</button>
+				
+				<div id="myModal" class="modal">
+				  <div class="modal-content">
+				    <img src="./css/spinner.svg" class="spinner-img">
+				  </div>
+				
+				</div>
 				
 	            <div class="clearfix-progression"></div>
 	        </div> 
@@ -49,12 +62,30 @@
 	    </div>
 	    <footer id="site-footer" ng-include src="'footer.html'"></footer>
 	    
-	    <script src="./js/libs/jquery-1.11.3.js"></script>	
+	    <script src="./js/libs/jquery-2.2.3.js"></script>	
 		<script src="./js/libs/jquery-migrate.min.js"></script>
 		<script src="./js/libs/modernizr-2.6.2.min.js"></script>
 		
 		<script src="./js/plugins.js"></script>
 		<script src="./js/script.js"></script>
 		<script src="./js/libs/jquery-ui.min.js"></script>
+		<script src="./js/libs/bootstrap.min.js"></script>
+		<script>
+		  $('#myStateButton').on('click', function () {
+		    $(this).button('processing') // button text will be "finished!"
+		  })
+		</script>
+		<script>
+			// Get the modal
+			var modal = document.getElementById('myModal');
+	
+			// Get the button that opens the modal
+			var btn = document.getElementById("myBtn");
+	
+			// When the user clicks on the button, open the modal 
+			btn.onclick = function() {
+			    modal.style.display = "block";
+			}
+		</script>
 	</body>
 </html>

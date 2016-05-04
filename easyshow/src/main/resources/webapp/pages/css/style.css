@@ -2131,7 +2131,7 @@ body a.ls-sc-button.default:hover span { color:#0ce682; font-weight:700 ; }
 body a.ls-sc-button.default span { color:#ffffff; font-weight:700; }
 
 
-body #main #comments-soundbyte #respond input#submit, body a.ls-sc-button.default {
+body #main #comments-soundbyte #respond input#submit, body a.ls-sc-button.default, body button.ls-sc-button.default {
     background-color: #0ce682;
     font: 600 13px Poppins;
     text-transform: uppercase;
