@@ -34,19 +34,14 @@
 						</div>
 					</div>
 	            </div>
-				<button ng-if="shows" ng-click="addShowsToBDD(shows)" class="ls-sc-button default"  type="button" id="myStateButton" data-processing-text="Processing..." autocomplete="off">
+				<button ng-if="shows" type="button" id="showsButton" data-processing-text="Processing..." ng-click="addShowsToBDD(shows)" class="ls-sc-button default"  >
 				  Add
 				</button>
-				<!-- <img src="./css/spinner.svg"> -->
-				
-				<!-- Trigger/Open The Modal -->
-				<button id="myBtn">Open Modal</button>
 				
 				<div id="myModal" class="modal">
 				  <div class="modal-content">
 				    <img src="./css/spinner.svg" class="spinner-img">
 				  </div>
-				
 				</div>
 				
 	            <div class="clearfix-progression"></div>
@@ -70,22 +65,14 @@
 		<script src="./js/script.js"></script>
 		<script src="./js/libs/jquery-ui.min.js"></script>
 		<script src="./js/libs/bootstrap.min.js"></script>
-		<script>
-		  $('#myStateButton').on('click', function () {
-		    $(this).button('processing') // button text will be "finished!"
-		  })
-		</script>
-		<script>
-			// Get the modal
-			var modal = document.getElementById('myModal');
-	
-			// Get the button that opens the modal
-			var btn = document.getElementById("myBtn");
-	
-			// When the user clicks on the button, open the modal 
-			btn.onclick = function() {
-			    modal.style.display = "block";
-			}
-		</script>
+	<script>
+	   $(function() { 
+	      $("#showsButton").click(function(){
+	         $(this).button('loading').delay(1000).queue(function() {
+	            // $(this).button('reset');
+	         });        
+	      });
+	   });  
+	</script>
 	</body>
 </html>

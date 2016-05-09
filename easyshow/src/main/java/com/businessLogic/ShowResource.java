@@ -49,7 +49,12 @@ public class ShowResource {
 		try(DirectoryStream<Path> stream = Files.newDirectoryStream(DDPath)) {
 
 			Iterator<Path> iterator = stream.iterator();
-			int nbBodyShows = body.size();
+			int nbBodyShows = 0;
+			for (ScannedShow show : body) {
+				if(show.getProperties() != null) {
+					nbBodyShows++;
+				}
+			}
 			int nbTreatedShows = 0;
 			
 			// Itérations sur les dossiers séries.

@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -79,10 +80,13 @@ public class DatabaseEM {
 	
 	public Show getShowByName(String dbName) {
 	
-		Show show = new Show();
+		Show show;
 		try {
 			show = em.createQuery("SELECT s FROM Show s WHERE s.dbName LIKE :dbName", Show.class)
 					.setParameter("dbName", dbName).getSingleResult();
+		} catch(NoResultException resEx) {
+			resEx.printStackTrace();
+			show = null;
 		} catch (Exception e) {
 			e.printStackTrace();
 			show = null;
