@@ -11,6 +11,8 @@ app.controller('scanController', [ '$scope', '$resource', '$http', '$q', '$log',
 			$scope.isHome = false;
 
 			$scope.addShowsToBDD = function(shows) {
+				var modal = document.getElementById('myModal');
+				modal.style.display = "block";
 				var selectedShows = [];
 				var show;
 				for (show in shows) {
@@ -23,6 +25,8 @@ app.controller('scanController', [ '$scope', '$resource', '$http', '$q', '$log',
 						function successCallback(data){
 							window.location="home.html";
 						}, function errorCallback(data){
+							var modal = document.getElementById('myModal');
+							modal.display.style = "none";
 							alert("Erreur lors de l'ajout des séries en bdd.");
 						});
 			}
