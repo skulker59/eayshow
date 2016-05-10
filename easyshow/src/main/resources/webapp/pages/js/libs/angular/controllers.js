@@ -6,6 +6,8 @@ app.controller('scanController', [ '$scope', '$resource', '$http', '$q', '$log',
 			$scope.shows = null;
 			scanFactory.get({}, function(scanFactory) {
 				$scope.shows = scanFactory.listShows;
+				var modal = document.getElementById('myModal');
+				modal.style.display = "none";
 			});
 			$scope.isScan = true;
 			$scope.isHome = false;
