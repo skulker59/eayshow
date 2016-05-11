@@ -64,9 +64,9 @@ public class Dao {
 		return dbem.listAllShows();
 	}
 	
-	public void getShowById(int id)
+	public Show getShowById(int id)
 	{
-		dbem.getShowById(id);
+		return dbem.getShowById(id);
 	}
 	
 	public Show getShowByName(String dbName) {

@@ -1,0 +1,38 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>  <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang="en" ng-app="easyshow-app"> <!--<![endif]-->
+	<head>
+		<title>Easyshow Home</title>
+		<ng-include src="'head.html'">
+		</ng-include>
+		<script src="./js/libs/angular/angular.js"></script>
+		<script src="./js/libs/angular/app.js"></script>
+		<script src="./js/libs/angular/controllers.js"></script>
+		<script src="./js/libs/angular/services.js"></script>
+		<script src="./js/libs/angular/angular-resource.min.js"></script>
+		<script src="./js/libs/jquery-2.2.3.js"></script>
+		<script src="./js/libs/bootstrap.min.js"></script>
+	</head>
+	<body class="home soundbyte" ng-controller="showController">
+		<header id="masthead-progression" class="site-header-progression" ng-include src="'header.html'"></header>
+			
+	    <div class="clearfix-progression"></div>
+	    
+	    <div id="main">
+			<div class="clearfix-progression header"></div>
+	        <h4 style="color : white">TOTO</h4>
+			<h4 style="color : white">{{url}}</h4>
+			<h4 style="color : white">{{query}}</h4>
+			<h4 style="color : white">{{show}}</h4>
+
+	        <div class="clearfix-progression"></div>
+		</div>
+	
+	    <div class="clearfix-progression"></div>
+	
+	    <footer id="site-footer" ng-include src="'footer.html'"></footer>
+	</body>
+</html>

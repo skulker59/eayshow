@@ -12,6 +12,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -19,7 +20,6 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.database.Dao;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.omertron.thetvdbapi.TheTVDBApi;
 import com.omertron.thetvdbapi.TvDbException;
 import com.omertron.thetvdbapi.model.Episode;
@@ -138,6 +138,14 @@ public class ShowResource {
 		HomeShows HShows = new HomeShows();
 		HShows.setListShows(new Dao().getAllShows());
 		return HShows;
+	}
+	
+	@GET
+	@javax.ws.rs.Path("/getShow")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Show getShowById(@QueryParam("id") int id) {
+		Show s = new Dao().getShowById(id);
+		return s;
 	}
 	
 	static class EpisodeId {

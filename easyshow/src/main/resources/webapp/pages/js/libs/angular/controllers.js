@@ -43,3 +43,24 @@ app.controller('homeController', [ '$scope', 'getShowsFactory',
 		$scope.isScan = false;
 		$scope.isHome = true;
 	} ]);
+
+app.controller('showController', [ '$scope', '$http', '$location',
+   function($scope, $http, $location) {
+	$scope.url = $location.path();
+	$scope.query = $location.search().id;
+	
+	$http({
+	    url: '/easyshow/api/shows/getShow', 
+	    method: "GET",
+	    params: {id: $location.search().id}
+	 }).then(
+			function successCallback(data){
+				alert('Success');
+				$scope.show = data.data;
+			}, function errorCallback(data){
+				alert('Error');
+			});
+	
+	$scope.isScan = false;
+	$scope.isHome = false;
+} ]);

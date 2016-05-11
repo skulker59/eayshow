@@ -74,7 +74,12 @@ public class DatabaseEM {
 	 * @return Une série.
 	 */
 	public Show getShowById(int id) {
-		Show show = em.find(Show.class, id);
+		Show show = null;
+		try {
+			show = em.find(Show.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return show;
 	}
 	
