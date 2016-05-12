@@ -65,6 +65,10 @@ public class FileSystem {
 			scan.setListShows(null);
 		} finally {
 			stream.close();
+			
+			if(scan.getListShows().isEmpty()) {
+				scan = null;
+			}
 		}
 		
 		return scan;

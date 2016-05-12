@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -41,7 +42,7 @@ public class Show {
 	@Column(name = "idTVDB", nullable=false)
 	private String idTVDB;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "show", orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.LAZY)
 	private List<Episode> listEpisodes = new ArrayList<>();
 	
 	public void addEpisode(Episode ep) {

@@ -1,14 +1,12 @@
 package com.pojos;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -42,33 +40,17 @@ public class Episode {
 	@Column(name = "status")
 	private String status;
 	
-	@ManyToOne
-	private Show show;
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JoinColumn(name="show_id")
+//	private Show show;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "episode", orphanRemoval = true)
-	private List<Video> listVideos;
-
-	public Show getShow() {
-		return show;
-	}
-
-	public void setShow(Show show) {
-		this.show = show;
-	}
-
-	public void addVideo(Video v) {
-		if (!listVideos.contains(v)) {
-			listVideos.add(v);
-		}
-	}
-
-	public List<Video> getListVideos() {
-		return listVideos;
-	}
-
-	public void setListVideos(List<Video> listVideos) {
-		this.listVideos = listVideos;
-	}
+//	public Show getShow() {
+//		return show;
+//	}
+//
+//	public void setShow(Show show) {
+//		this.show = show;
+//	}
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -99,10 +81,6 @@ public class Episode {
 	
 	public int getId() {
 		return id;
-	}
-
-	private void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {

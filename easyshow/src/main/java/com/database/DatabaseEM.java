@@ -1,5 +1,6 @@
 package com.database;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -77,6 +78,18 @@ public class DatabaseEM {
 		Show show = null;
 		try {
 			show = em.find(Show.class, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return show;
+	}
+	
+	public Show getShowWithEpisodeById(int id) {
+		Show show = null;
+		try {
+			show = (Show) em.createQuery(
+			        "SELECT s FROM Show s JOIN FETCH s.listEpisodes WHERE s.id = " + id)
+			        .getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

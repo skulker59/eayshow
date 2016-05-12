@@ -50,7 +50,7 @@ app.controller('showController', [ '$scope', '$http', '$location',
 	$scope.query = $location.search().id;
 	
 	$http({
-	    url: '/easyshow/api/shows/getShow', 
+	    url: '/easyshow/api/shows/getShowWithEpisodes', 
 	    method: "GET",
 	    params: {id: $location.search().id}
 	 }).then(

@@ -14,40 +14,40 @@ public class Dao {
 	}
 	
 	public void callDBEM() {
-		Show s = new Show();
-		s.setName("serie1");
-		s.setOverview("desc");
-		s.setAnime(true);
-		
-		Episode ep = new Episode();
-		ep.setName("episode1");
-		ep.setEpSeason(1);
-		ep.setEpNumber(1);
-		ep.setEpAbsolute(-1);
-		ep.setDescription("descEp");
-		ep.setAiredDate("2016-05-15");
-		ep.setShow(s);
-		
-		Episode ep2 = new Episode();
-		ep2.setName("episode2");
-		ep2.setEpSeason(1);
-		ep2.setEpNumber(2);
-		ep2.setEpAbsolute(-1);
-		ep2.setDescription("descEp");
-		ep2.setAiredDate("2016-05-30");
-		ep2.setShow(s);
-		
-		s.addEpisode(ep);
-		s.addEpisode(ep2);
-		
-		int idShow = dbem.addShow(s);
-//		dbem.listShows();
-//		dbem.addShow("serie2", "2016", "desc", "horror", true);
-		dbem.listAllShows();
-		
-//		dbem.deleteAllEpisodeFromShow(idShow);
+//		Show s = new Show();
+//		s.setName("serie1");
+//		s.setOverview("desc");
+//		s.setAnime(true);
+//		
+//		Episode ep = new Episode();
+//		ep.setName("episode1");
+//		ep.setEpSeason(1);
+//		ep.setEpNumber(1);
+//		ep.setEpAbsolute(-1);
+//		ep.setDescription("descEp");
+//		ep.setAiredDate("2016-05-15");
+//		ep.setShow(s);
+//		
+//		Episode ep2 = new Episode();
+//		ep2.setName("episode2");
+//		ep2.setEpSeason(1);
+//		ep2.setEpNumber(2);
+//		ep2.setEpAbsolute(-1);
+//		ep2.setDescription("descEp");
+//		ep2.setAiredDate("2016-05-30");
+//		ep2.setShow(s);
+//		
+//		s.addEpisode(ep);
+//		s.addEpisode(ep2);
+//		
+//		int idShow = dbem.addShow(s);
+////		dbem.listShows();
+////		dbem.addShow("serie2", "2016", "desc", "horror", true);
 //		dbem.listAllShows();
-		dbem.shutdown();
+//		
+////		dbem.deleteAllEpisodeFromShow(idShow);
+////		dbem.listAllShows();
+//		dbem.shutdown();
 	}
 	
     /**
@@ -69,6 +69,11 @@ public class Dao {
 		return dbem.getShowById(id);
 	}
 	
+	public Show getShowWithEpisodesById(int id)
+	{
+		return dbem.getShowWithEpisodeById(id);
+	}
+	
 	public Show getShowByName(String dbName) {
 		return dbem.getShowByName(dbName);
 	}
@@ -84,23 +89,10 @@ public class Dao {
     
     /**
      * Ajoute un épisode lié à une série.
-     * @param name Nom de l'épisode.
-     * @param numSeason Numéro de saison.
-     * @param numEpisode Numéro d'épisode.
-     * @param description Description de l'épisode.
-     * @param airedDate Date de sortie.
-     * @param idShow Id de la série liée à l'épisode.
+     * @param ep Episode à ajouter.
      * @return L'id de l'épisode ajouté.
      */
-    public int addEpisode(String name, int numSeason, int numEpisode, String description, String airedDate, int idShow, int numEpAbsolute) {
-		Episode ep = new Episode();
-		ep.setName(name);
-		ep.setEpSeason(numSeason);
-		ep.setEpNumber(numEpisode);
-		ep.setEpAbsolute(numEpAbsolute);
-		ep.setDescription(description);
-		ep.setAiredDate(airedDate);
-//		ep.setIdShow(idShow);
+    public int addEpisode(Episode ep) {
     	return dbem.addEpisode(ep);
     }
 }

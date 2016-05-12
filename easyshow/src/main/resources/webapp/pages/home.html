@@ -25,7 +25,7 @@
 			<div class="clearfix-progression header"></div>
 	        <div class="five-columns isotope full-width-progression">
 	            <div class="isotope-item init" ng-repeat="show in shows">
-	                <a href="show.html" class="isotope-img-container">
+	                <a ng-href="show.html?id={{show.id}}" target="_self" class="isotope-img-container">
 	                    <div class="zoom-image-container-progression">
 	                        <img src="{{show.urlPoster}}" alt="podcast" width="300" height="441" />
 	                    </div>
