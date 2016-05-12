@@ -40,18 +40,6 @@ public class Episode {
 	@Column(name = "status")
 	private String status;
 	
-//	@ManyToOne(fetch=FetchType.LAZY)
-//	@JoinColumn(name="show_id")
-//	private Show show;
-
-//	public Show getShow() {
-//		return show;
-//	}
-//
-//	public void setShow(Show show) {
-//		this.show = show;
-//	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -93,6 +81,10 @@ public class Episode {
 
 	public int getEpSeason() {
 		return epSeason;
+	}
+	
+	public String getEpSeasonFormatted() {
+		return String.format("%1$02d", epSeason);
 	}
 
 	public void setEpSeason(int epSeason) {

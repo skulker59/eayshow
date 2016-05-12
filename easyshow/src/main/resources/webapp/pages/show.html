@@ -23,12 +23,10 @@
 	    
 	    <div id="main">
 			<div class="clearfix-progression header"></div>
-	        <h4 style="color : white">TOTO</h4>
-			<h4 style="color : white">{{url}}</h4>
-			<h4 style="color : white">{{query}}</h4>
-			<h4 style="color : white">{{show}}</h4>
 			
-			<h4 style="color : white">{{show}}</h4>
+			<div class="isotope-item init" ng-repeat="ep in show.listEpisodes">
+				<h4 style="color : orange">{{ep.name}}</h4>
+            </div>
 
 	        <div class="clearfix-progression"></div>
 		</div>

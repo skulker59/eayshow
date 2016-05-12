@@ -55,10 +55,8 @@ app.controller('showController', [ '$scope', '$http', '$location',
 	    params: {id: $location.search().id}
 	 }).then(
 			function successCallback(data){
-				alert('Success');
 				$scope.show = data.data;
 			}, function errorCallback(data){
-				alert('Error');
 			});
 	
 	$scope.isScan = false;
