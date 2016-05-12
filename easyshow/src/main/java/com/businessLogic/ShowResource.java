@@ -5,6 +5,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -93,6 +94,7 @@ public class ShowResource {
 							// Création d'une map afin de vérifier rapidement la présence ou non d'épisodes.
 //							Map<EpisodeId, Episode> episodesMap = episodes.stream().filter(e -> e.getSeasonNumber() > 0).collect(Collectors.toMap(e -> new EpisodeId(e.getSeasonNumber(), e.getEpisodeNumber()), e -> e));
 							
+							List<com.pojos.Episode> listEps = new ArrayList<>();
 							for(Episode episode : episodes)
 							{
 								com.pojos.Episode epDatabase = new com.pojos.Episode();
@@ -107,11 +109,13 @@ public class ShowResource {
 								boolean presence = FV.getEpisodesSet().contains(epId);
 								epDatabase.setStatus((presence == true ? "FOUND" : "NOT_FOUND"));
 								
-								// Association de l'épisode à la série.
-								newShow.addEpisode(epDatabase);
+								database.addEpisode(epDatabase);
+								listEps.add(epDatabase);
+
 							}
-							
+							newShow.setListEpisodes(listEps);
 							database.addShow(newShow);
+							
 							nbTreatedShows++;
 						}
 					}
@@ -145,6 +149,14 @@ public class ShowResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Show getShowById(@QueryParam("id") int id) {
 		Show s = new Dao().getShowById(id);
+		return s;
+	}
+	
+	@GET
+	@javax.ws.rs.Path("/getShowWithEpisodes")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Show getShowEpisodesById(@QueryParam("id") int id) {
+		Show s = new Dao().getShowWithEpisodesById(id);
 		return s;
 	}
 	
