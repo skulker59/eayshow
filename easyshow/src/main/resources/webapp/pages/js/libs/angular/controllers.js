@@ -56,9 +56,21 @@ app.controller('showController', [ '$scope', '$http', '$location',
 	 }).then(
 			function successCallback(data){
 				$scope.show = data.data;
+				$scope.seasons = [];
+				var temp = _.uniq(data.data.listEpisodes, true, function(ep){ return ep.epSeason; });
+				for (var epTemp of temp) {
+					$scope.seasons.push(epTemp.epSeason);
+				}
+			    
 			}, function errorCallback(data){
 			});
 	
 	$scope.isScan = false;
 	$scope.isHome = false;
+	
+	$scope.pad = function pad(num, size) {
+	    var s = num+"";
+	    while (s.length < size) s = "0" + s;
+	    return s;
+	}
 } ]);

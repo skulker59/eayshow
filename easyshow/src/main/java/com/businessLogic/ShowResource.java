@@ -97,21 +97,22 @@ public class ShowResource {
 							List<com.pojos.Episode> listEps = new ArrayList<>();
 							for(Episode episode : episodes)
 							{
-								com.pojos.Episode epDatabase = new com.pojos.Episode();
-								epDatabase.setName(episode.getEpisodeName());
-								epDatabase.setEpSeason(episode.getSeasonNumber());
-								epDatabase.setEpNumber(episode.getEpisodeNumber());
-								epDatabase.setEpAbsolute(-1);
-								epDatabase.setDescription(episode.getOverview());
-								epDatabase.setAiredDate(episode.getFirstAired());
-								
-								EpisodeId epId = new EpisodeId(episode.getSeasonNumber(), episode.getEpisodeNumber());
-								boolean presence = FV.getEpisodesSet().contains(epId);
-								epDatabase.setStatus((presence == true ? "FOUND" : "NOT_FOUND"));
-								
-								database.addEpisode(epDatabase);
-								listEps.add(epDatabase);
-
+								if(episode.getSeasonNumber() != 0) {
+									com.pojos.Episode epDatabase = new com.pojos.Episode();
+									epDatabase.setName(episode.getEpisodeName());
+									epDatabase.setEpSeason(episode.getSeasonNumber());
+									epDatabase.setEpNumber(episode.getEpisodeNumber());
+									epDatabase.setEpAbsolute(-1);
+									epDatabase.setDescription(episode.getOverview());
+									epDatabase.setAiredDate(episode.getFirstAired());
+									
+									EpisodeId epId = new EpisodeId(episode.getSeasonNumber(), episode.getEpisodeNumber());
+									boolean presence = FV.getEpisodesSet().contains(epId);
+									epDatabase.setStatus((presence == true ? "FOUND" : "NOT_FOUND"));
+									
+									database.addEpisode(epDatabase);
+									listEps.add(epDatabase);
+								}
 							}
 							newShow.setListEpisodes(listEps);
 							database.addShow(newShow);

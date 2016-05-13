@@ -10,6 +10,7 @@
 		</ng-include>
 		<script src="./js/libs/angular/angular.js"></script>
 		<script src="./js/libs/angular/app.js"></script>
+		<script src="./js/libs/underscore-min.js"></script>
 		<script src="./js/libs/angular/controllers.js"></script>
 		<script src="./js/libs/angular/services.js"></script>
 		<script src="./js/libs/angular/angular-resource.min.js"></script>
@@ -24,8 +25,14 @@
 	    <div id="main">
 			<div class="clearfix-progression header"></div>
 			
-			<div class="isotope-item init" ng-repeat="ep in show.listEpisodes">
-				<h4 style="color : orange">{{ep.name}}</h4>
+			<h4 style="color : orange">{{seasons}}</h4>
+			<div>
+				<!-- <h4 style="color : orange">S{{pad(ep.epSeason,2)}}E{{pad(ep.epNumber,2)}} : {{ep.name}}</h4> -->
+				<div class="list-group" ng-repeat="season in seasons">
+			    	<a href="#" class="list-group-item" ng-repeat="ep in show.listEpisodes | filter:{epSeason : season}">
+			    		<p class="list-group-item-text">S{{pad(ep.epSeason,2)}}E{{pad(ep.epNumber,2)}} : {{ep.name}}</p>
+			  		</a>
+				</div>
             </div>
 
 	        <div class="clearfix-progression"></div>

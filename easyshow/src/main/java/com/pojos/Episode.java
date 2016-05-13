@@ -82,10 +82,6 @@ public class Episode {
 	public int getEpSeason() {
 		return epSeason;
 	}
-	
-	public String getEpSeasonFormatted() {
-		return String.format("%1$02d", epSeason);
-	}
 
 	public void setEpSeason(int epSeason) {
 		this.epSeason = epSeason;
